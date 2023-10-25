@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Setup
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
           cache: 'npm'
@@ -26,7 +26,7 @@ jobs:
       - name: Build JavaScript
         run: npm run build
 
-      - uses: cypress-io/github-action@v4.2.0 # use the explicit version number
+      - uses: cypress-io/github-action@v6.5.0 # use the explicit version number
         with:
           start: npm run serve
           wait-on: "http://localhost:4000"
